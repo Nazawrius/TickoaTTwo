@@ -28,14 +28,14 @@ class Solution:
             
             results = [self.solve_board(board, player^1) for board in boards]
 
-            if (-1)**player in results:
-                self.map[code] = 1
-                return (-1)**player
-            if 0 in results:
-                self.map[code] = 0
-                return 0
-            self.map[code] = (-1)**(player + 1)
-            return (-1)**(player + 1)
+            if player:
+                m = max(results)
+                self.map[code] = m
+                return m
+            else:
+                m = min(results)
+                self.map[code] = m
+                return m
     
     @staticmethod
     def create_map(n):
