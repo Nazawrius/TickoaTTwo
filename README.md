@@ -7,6 +7,4 @@ solution.txt contains all the boards and values:
 
 1 -- player 1 wins
 
-0 -- draw
-
 -1 -- player 2 wins.

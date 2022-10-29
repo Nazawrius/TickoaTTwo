@@ -16,26 +16,17 @@ class Solution:
             return (-1)**(player + 1)
 
         moves = board.available_moves(player)
-        if moves == []:
-            self.map[code] = 0
-            return 0
-        else:
-            boards = []
-            for move in moves:
-                new_board = board.make_copy()
-                new_board.make_move(move[0] + 1, move[1] + 1, player)
-                boards.append(new_board)
+        boards = []
+        for move in moves:
+            new_board = board.make_copy()
+            new_board.make_move(move[0] + 1, move[1] + 1, player)
+            boards.append(new_board)
             
-            results = [self.solve_board(board, player^1) for board in boards]
-
-            if player:
-                m = max(results)
-                self.map[code] = m
-                return m
-            else:
-                m = min(results)
-                self.map[code] = m
-                return m
+        results = [self.solve_board(board, player^1) for board in boards]
+        
+        m = max(results) if player else min(results)
+        self.map[code] = m
+        return m
     
     @staticmethod
     def create_map(n):
