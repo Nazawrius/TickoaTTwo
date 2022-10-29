@@ -1,5 +1,3 @@
-import time
-
 class Solution:
     def __init__(self):
         self.map = self.create_map(9)
