@@ -1,0 +1,2 @@
+# TickoaTTwo
+Solution of TickoaTTwo
